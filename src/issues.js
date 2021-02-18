@@ -13,7 +13,6 @@ const IssuesList = () => {
         setItems(result);
       });
   }, []);
-  console.log(filter);
 
   return (
     <div>
