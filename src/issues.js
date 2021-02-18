@@ -3,16 +3,20 @@ import React, { useState, useEffect } from "react";
 const IssuesList = () => {
   const [items, setItems] = useState([]);
   const [filter, setFilter] = useState("");
-
+  const [page, setPage] = useState(1);
   useEffect(() => {
-    fetch("https://api.github.com/repos/facebook/react/issues?per_page=100", {
-      method: "GET",
-    })
+    fetch(
+      `https://api.github.com/repos/facebook/react/issues?per_page=100&&page=${page}`,
+      {
+        method: "GET",
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         setItems(result);
       });
-  }, []);
+  }, [page]);
+  console.log(page);
 
   return (
     <div>
@@ -24,6 +28,15 @@ const IssuesList = () => {
             name="search"
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
+          />
+        </label>
+        <label>
+          page number:
+          <input
+            type="number"
+            name="Page"
+            value={page}
+            onChange={(e) => setPage(e.target.value)}
           />
         </label>
       </form>
