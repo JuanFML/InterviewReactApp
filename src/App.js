@@ -8,7 +8,8 @@ function App() {
         <p>Please search below.</p>
         <p>
           Although it works I wasn't able to filter directly on the API only
-          here :( , so that is why the list of issues is short.
+          here :( , so that is why the list of issues is short. But Now you can
+          change page.
         </p>
         <IssuesList></IssuesList>
       </header>
