@@ -31,7 +31,7 @@ const IssuesList = () => {
           />
         </label>
         <label>
-          page number:
+          Page Number:
           <input
             type="number"
             name="Page"
