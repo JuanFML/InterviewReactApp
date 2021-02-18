@@ -5,7 +5,7 @@ const IssuesList = () => {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    fetch("https://api.github.com/repos/facebook/react/issues", {
+    fetch("https://api.github.com/repos/facebook/react/issues?per_page=100", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -30,8 +30,6 @@ const IssuesList = () => {
       </form>
       {items.map((item) => {
         if (item.title.includes(filter)) {
-          console.log(filter);
-          console.log(item.title.split(" "));
           return <li key={item.id}>{item.title}</li>;
         }
         return null;
