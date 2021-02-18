@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 
 const IssuesList = () => {
   const [items, setItems] = useState([]);
+  const [filter, setFilter] = useState("");
 
-  // Note: the empty deps array [] means
-  // this useEffect will run once
-  // similar to componentDidMount()
   useEffect(() => {
     fetch("https://api.github.com/repos/facebook/react/issues", {
       method: "GET",
@@ -15,12 +13,28 @@ const IssuesList = () => {
         setItems(result);
       });
   }, []);
-  console.log(items);
+  console.log(filter);
 
   return (
     <div>
+      <form>
+        <label>
+          Search:
+          <input
+            type="text"
+            name="search"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+          />
+        </label>
+      </form>
       {items.map((item) => {
-        return <li key={item.id}>{item.title}</li>;
+        if (item.title.includes(filter)) {
+          console.log(filter);
+          console.log(item.title.split(" "));
+          return <li key={item.id}>{item.title}</li>;
+        }
+        return null;
       })}
     </div>
   );
