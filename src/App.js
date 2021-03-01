@@ -6,11 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>Please search below.</p>
-        <p>
-          Although it works I wasn't able to filter directly on the API only
-          here :( , so that is why the list of issues is short. But Now you can
-          change page.
-        </p>
+        <p>Search or change page.</p>
         <IssuesList></IssuesList>
       </header>
     </div>
