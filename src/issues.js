@@ -4,19 +4,23 @@ const IssuesList = () => {
   const [items, setItems] = useState([]);
   const [filter, setFilter] = useState("");
   const [page, setPage] = useState(1);
+
   useEffect(() => {
     fetch(
-      `https://api.github.com/repos/facebook/react/issues?per_page=100&&page=${page}`,
+      `http://internal-classic-lb-http-backend-765877807.us-east-2.elb.amazonaws.com`,
       {
         method: "GET",
       }
     )
-      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        res.json();
+      })
       .then((result) => {
         setItems(result);
       });
-  }, [page]);
-  console.log(page);
+  }, [filter]);
+  console.log(items);
 
   return (
     <div>
