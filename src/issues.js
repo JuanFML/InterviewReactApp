@@ -8,6 +8,7 @@ const IssuesList = () => {
   useEffect(() => {
     fetch(
       `http://internal-classic-lb-http-backend-765877807.us-east-2.elb.amazonaws.com`,
+      // `https://api.github.com/repos/facebook/react/issues?per_page=100&&page=${page}`,
       {
         method: "GET",
       }
@@ -45,10 +46,7 @@ const IssuesList = () => {
         </label>
       </form>
       {items.map((item) => {
-        if (item.title.includes(filter)) {
-          return <li key={item.id}>{item.title}</li>;
-        }
-        return null;
+        return <li key={item}>{item}</li>;
       })}
     </div>
   );
