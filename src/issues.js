@@ -7,7 +7,7 @@ const IssuesList = () => {
 
   useEffect(() => {
     fetch(
-      "http://internal-loadbalancer-backend-1034007956.us-east-2.elb.amazonaws.com"
+      "http://internal-loadbalancer-backend-1658632040.us-east-2.elb.amazonaws.com"
     ).then((res) => {
       res.json().then((result) => {
         setItems(result);
