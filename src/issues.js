@@ -6,18 +6,13 @@ const IssuesList = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    fetch(
-      "http://internal-loadbalancer-backend-1034007956.us-east-2.elb.amazonaws.com"
-    )
-      .then((res) => {
-        console.log(res);
-        res.json();
-      })
-      .then((result) => {
+    fetch("http://localhost:8080").then((res) => {
+      res.json().then((result) => {
         setItems(result);
       });
+    });
   }, [filter]);
-  console.log(items);
+  // console.log(items);
 
   return (
     <div>
