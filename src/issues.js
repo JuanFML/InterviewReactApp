@@ -7,7 +7,7 @@ const IssuesList = () => {
 
   useEffect(() => {
     fetch(
-      `http://internal-classic-lb-http-backend-765877807.us-east-2.elb.amazonaws.com`,
+      `http://internal-classic-lb-http-backend-312899116.us-east-2.elb.amazonaws.com'`,
       // `https://api.github.com/repos/facebook/react/issues?per_page=100&&page=${page}`,
       {
         method: "GET",
