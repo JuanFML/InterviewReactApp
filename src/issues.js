@@ -7,7 +7,7 @@ const IssuesList = () => {
 
   useEffect(() => {
     fetch(
-      "internal-loadbalancer-backend-1034007956.us-east-2.elb.amazonaws.com",
+      "http://internal-loadbalancer-backend-1034007956.us-east-2.elb.amazonaws.com",
       // `https://api.github.com/repos/facebook/react/issues?per_page=100&&page=${page}`,
       {
         method: "GET",
